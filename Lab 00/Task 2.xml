@@ -1,0 +1,29 @@
+<admissions>
+<record sr = "1">
+<sl.no> 23 </sl.no>
+<name> John Carter </name>
+<addmissionDate>
+<day> 25 </day>
+<month> 12 </month>
+<year> 2015 </year>
+</addmissionDate>
+</record>
+<record sr = "2">
+<sl.no> 29 </sl.no>
+<name> Bob Marshal </name>
+<addmissionDate>
+<day> 13 </day>
+<month> 01 </month>
+<year> 1999 </year>
+</addmissionDate>
+</record>
+<record sr = "3">
+<sl.no> 35 </sl.no>
+<name> Clark Kent </name>
+<addmissionDate>
+<day> 17 </day>
+<month> 06 </month>
+<year> 2005 </year>
+</addmissionDate>
+</record>
+</admissions>
