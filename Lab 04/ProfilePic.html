@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture Upload</title>
+</head>
+<body>
+    <form method="post" action="uploadPic.php" enctype="multipart/form-data">
+        <fieldset>
+            <legend><b>Picture Upload</b></legend>
+            <img src="WT.jpeg" alt="uploadPic"><br>
+            <label for="picture">Upload Picture:</label>
+            <input type="file" name="picture" id="picture" accept=".jpg, .jpeg, .png" required>
+            <br>
+            <input type="submit" name="submit" value="Upload">
+        </fieldset>
+    </form>
+</body>
+</html>
