@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profile Picture</title>
+    </head>
+
+    <body>
+        <form onsubmit="return validateForm()">
+            <fieldset>
+                <legend>Profile Picture</legend>
+                User Id &nbsp <input type="text" name="userId" id="userId"><br><br>
+                Picture &nbsp <input type="file" name="picture" id="picture" value=""><br><br>
+                <input type="submit" value="Submit">
+            </fieldset>
+            <h1 id="Message"></h1>
+        </form>
+
+        <script>
+            function validateForm() {
+                let userId = document.getElementById('userId').value;
+                let picture = document.getElementById('picture').value;
+                if (userId === "" || isNaN(userId) || Number(userId) <= 0) {
+                    document.getElementById("Message").innerHTML = "User Id cannot be empty and has to be a positive number";
+                    return false;
+                }
+                if (picture === "") {
+                    document.getElementById("Message").innerHTML = "Picture cannot be empty";
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    </body>
+
+</html>

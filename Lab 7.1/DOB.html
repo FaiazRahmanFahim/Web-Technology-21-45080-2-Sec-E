@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date of Birth</title>
+</head>
+<body>
+    <form onsubmit="return dob()">
+        <fieldset>
+            <legend><b>Date of Birth</b></legend>
+            &nbsp&nbsp
+            dd &nbsp&nbsp&nbsp&nbsp&nbsp
+            mm &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            yy
+            <br>
+            <input type="number" name="day" id="dd" style="width: 30px;"> <b>/</b>
+            <input type="number" name="month" id="mm" style="width: 30px;"> <b>/</b>
+            <input type="number" name="year" id="yyyy" style="width: 60px"> 
+            <hr>
+            <input type="submit" value="Submit">
+        </fieldset>
+        <h1 id="Message"></h1>
+    </form>
+
+    <script>
+        function dob() {
+            if (document.getElementById("dd").value == "" || document.getElementById("mm").value == "" || document.getElementById("yyyy").value == "") {
+                document.getElementById("Message").innerHTML = "Cannot be empty";
+                return false;
+            } else if (document.getElementById("dd").value <= 0 || document.getElementById("dd").value > 31) {
+                document.getElementById("Message").innerHTML = "Day must be a valid date";
+                return false;
+            } else if (document.getElementById("mm").value <= 0 || document.getElementById("mm").value > 12) {
+                document.getElementById("Message").innerHTML = "Month must be a valid month";
+                return false;
+            } else if (document.getElementById("yyyy").value < 1900 || document.getElementById("yyyy").value > 2016) {
+                document.getElementById("Message").innerHTML = "Year must be a valid year";
+                return false;
+            }
+            document.getElementById("Message").innerHTML = "Submitted Successfully";
+            return true;
+        }
+    </script> 
+</body>
+</html>
