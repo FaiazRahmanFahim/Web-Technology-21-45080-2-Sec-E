@@ -1,0 +1,188 @@
+<html>
+<head>
+    <title>HTML FORM</title>
+</head>
+<body>
+    <form method="" action="" enctype="" onsubmit="return PersonProfile()">
+        <table border ="1" cellspacing = '' height = '60%' width ='30%'>
+            <tr>
+                <th colspan="3"><h1><center>PERSON PROFILE</center></h1></th>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="" id="name" value=""/></td>
+                <td>&nbsp&nbsp&nbsp&nbsp</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="" id="email" value=""/></td>
+                <td>&nbsp&nbsp&nbsp&nbsp</td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="gender" id="male" value="" /> Male &nbsp
+                    <input type="radio" name="gender" id="female" value="" /> Female &nbsp
+                    <input type="radio" name="gender" id="other" value="" /> Other
+                </td>
+                <td>&nbsp&nbsp&nbsp&nbsp</td>
+            </tr>
+            <tr>
+                <td>Date of Birth</td>
+                <td>
+                    <input type="number" name="" id="day" value=""  style="width: 40px;">
+                    <input type="number" name="" id="month" value=""  style="width: 40px;">
+                    <input type="number" name="" id="year" value=""  style="width: 40px;"> &nbsp (dd/mm/yyyy)
+                </td>
+                <td>&nbsp&nbsp&nbsp&nbsp</td>   
+            </tr>
+            <tr>
+                <td>Blood Group</td>
+                <td>
+                    <select name="" id="BloodGroup">
+
+                        <option value="">Select a blood group</option>
+                        <option value="A+">A+</option>         
+                        <option value="O+">O+</option>         
+                        <option value="O-">O-</option>         
+                        <option value="B+">B+</option>
+                        <option value="O+">O+</option>         
+                        <option value="AB-">AB-</option>         
+                        <option value="AB+">AB+</option> 
+                        <option value="A-">A-</option>       
+                        <option value="B-">B+</option> 
+        
+                    </select>
+                </td>
+                <td>&nbsp&nbsp&nbsp&nbsp</td>  
+            </tr>
+            <tr>
+                <td>Degree</td>
+                <td>
+
+                    <input type="checkbox" name="" id="SSC" value="Click" /> SSC &nbsp&nbsp
+                    <input type="checkbox" name="" id="HSC" value="Click" /> HSC &nbsp&nbsp
+                    <input type="checkbox" name="" id="BSc" value="Click" /> BSc &nbsp&nbsp
+                    <input type="checkbox" name="" id="MSc" value="Click" /> MSc
+
+                </td>
+                <td>&nbsp&nbsp&nbsp&nbsp</td>
+            </tr>
+            <tr>
+                <td>Photo</td>
+                <td><input type="file" name="" id="picture" value="" /></td>
+                <td>&nbsp&nbsp&nbsp&nbsp</td>
+            </tr>
+            <tr>
+                <td colspan="3"><br></td>
+            </tr>
+            <tr>
+                <td colspan="3" align=" right"> 
+                    <input type="submit" name="submit" value="submit" onclick="myFun()" /> &nbsp&nbsp
+                    <input type="reset" name="" value="reset" /> &nbsp&nbsp&nbsp&nbsp
+                </td> 
+                
+            </tr>
+        </table>
+    </form>
+    <script>
+        function PersonProfile() 
+        {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let selectedBloodGroup = document.getElementById("BloodGroup").value;
+            //let gender = document.getElementById("gender").value;
+            //let DOB = document.getElementById("dob").value;
+            let picture = document.getElementById('picture').value;
+            
+
+            //Name Validation
+            if(name === "") 
+            {
+                //document.getElementById("Message").innerHTML = "Cannot be empty";
+                alert("Name Cannot be empty!");
+                //document.writeln("Cannot be empty");
+                return false;
+            }
+            else if(!/^[a-zA-Z]+$/.test(name[0]) || /\d/.test(name)) 
+            {
+                alert("Name must start with a letter and does not contain a number!");
+                return false;
+            }
+            else if(name.split(" ").length < 2)
+            {
+                alert("Name must contain at least two words!");
+                return false;
+            }
+
+            //Email Validation
+            if (email === "") 
+            {
+                alert("Email cannot be empty.");
+                return false;
+            } 
+            else if (!/\S+@\S+\.\S+/.test(email)) 
+            {
+                alert("Invalid email address format!");
+                return false;
+            }
+
+            //Gender Validation
+            if (!document.getElementById("male").checked && !document.getElementById("female").checked && !document.getElementById("other").checked) 
+            {
+                alert("Please Select Gender!");
+                return false;
+            }
+        
+            // Date of Birth Validation
+            let day = document.getElementById("day").value;
+            let month = document.getElementById("month").value;
+            let year = document.getElementById("year").value;
+
+            if (day === "" || month === "" || year === "") 
+            {
+                alert("Date of Birth cannot be empty!");
+                return false;
+            } 
+            else if (day < 0 || day >= 31) 
+            {
+                alert("Day must be a valid date!");
+                return false;
+            } 
+            else if (month < 0 || month >= 12) 
+            {
+                alert("Month must be a valid month!");
+                return false;
+            } 
+            else if (year <= 1900 || year >= 2023) 
+            {
+                alert("Year must be a valid year!");
+                return false;
+            }
+
+            //Blood Group Validation
+            if (selectedBloodGroup === "") 
+            {
+                alert("Please select a valid blood group!");
+                return false;
+            }
+ 
+            //Blood Group Validation
+            if (!document.getElementById("SSC").checked && !document.getElementById("HSC").checked && !document.getElementById("BSc").checked && !document.getElementById("MSc").checked) 
+            {
+                alert("At least one Degree has to be selected!");
+                return false;
+            }
+
+            //Blood Group Validation
+            if (picture === "") 
+            {
+                alert("Picture cannot be empty");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

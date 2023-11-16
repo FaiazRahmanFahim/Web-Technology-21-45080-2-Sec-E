@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Email</title>
+  </head>
+
+  <body>
+    Email &nbsp : &nbsp 
+    <input type="text" id="email"><br><br>
+    <input type="submit" name="submit" value="Submit" onclick="myFun()"></input>
+    <hr>
+    <h1 id="Message"></h1>
+
+    <script>
+      function validateEmail(email) 
+      {
+        return email.includes("@") && email.includes(".");
+      }
+
+      function myFun() 
+      {
+        let a = document.getElementById("email").value;
+        if (a.trim() === "") 
+        {
+          document.getElementById("Message").innerHTML = "Cannot be empty";
+        } else if (!validateEmail(a)) 
+        {
+          document.getElementById("Message").innerHTML = "Invalid email format";
+        } else 
+        {
+          document.getElementById("Message").innerHTML = "Email is submitted successfully";
+        }
+      }
+    </script>
+  </body>
+</html>
